@@ -9,7 +9,7 @@
 input {
   width: 100%;
 }
-.FormGenerator {
+.form_generator {
   margin: 4%;
   display: flex;
   flex-direction: column;

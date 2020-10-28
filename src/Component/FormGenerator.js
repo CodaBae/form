@@ -7,7 +7,7 @@ class FormGenerator extends Component {
     render() {
         console.log(this.state.form_type)
         return (
-            <div className="FormGenerator">
+            <div className="form_generator">
                 <h2>Police Brutality Report Form</h2>
                 <form onSubmit={this.props.submit}>
 
@@ -20,8 +20,8 @@ class FormGenerator extends Component {
                                         <input id={item.type} name={item.type} type={item.type} onChange={this.props.handleChange} />
                                     </div>
                                 )
-
-                            }) : <h2>no date</h2>
+                            }) :
+                            <h2>no data</h2>
                     }
                     <div className='btn'>
                         <button>Submit</button>
