@@ -1,25 +1,45 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import FormGenerator from './Component/FormGenerator'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    text: '',
+    date: '',
+    number: ''
+
+  }
+  form_data = [
+    {
+      label: 'What is the name of the officer in question?',
+      type: 'text',
+    },
+    {
+      label: 'When was the date of the incident?',
+      type: 'date',
+    },
+    {
+      label: 'How much is the bribe that was paid? (optional)',
+      type: 'number',
+    },
+  ];
+
+  handleChange = (evt) => {
+    this.setState({ [evt.target.name]: evt.target.value })
+  }
+  handleSubmission = (evt) => {
+    evt.preventDefault();
+  }
+
+
+  render() {
+
+    return (
+      <div className="App">
+        <FormGenerator form={this.form_data} submit={this.handleSubmission} handleChange={this.handleChange} />
+      </div>
+    );
+  }
 }
 
 export default App;
